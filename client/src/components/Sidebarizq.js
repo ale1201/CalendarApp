@@ -5,7 +5,7 @@ import SmallCalendar from "./SmallCalendar";
 import CalendarSB from "./CalendarSB";
 import GlobalContext from "../context/GlobalContext";
 import Labels from "./Labels";
-export default function Sidebar() {
+export default function Sidebarizq() {
     const { monthIndex, setMonthIndex } = useContext(GlobalContext);
     function handlePrevMonth() {
       setMonthIndex(monthIndex - 1);
@@ -23,15 +23,14 @@ export default function Sidebar() {
   
   return (
    
-    <aside className="m-3 border rounded align-right p-5 w-70 ">
+    <aside className="m-3 border p-5 w-64 ">
      
-      
-     <CreateEventButton  />
-   
-     <Labels />
+     
+       <CalendarSB   />
+       
+    
+      <SmallCalendar />
+    
     </aside>
-     
-
   );
 }
-
