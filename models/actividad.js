@@ -1,8 +1,7 @@
 const { DataTypes, Model } = require("sequelize");
 const sequelize = require("../lib/sequelize");
 
-const Seguro = require("./seguro");
-const LineaVeterinaria = require("./lineaveterinaria");
+const Calendario = require("./calendario");
 
 class Actividad extends Model { }
 
@@ -28,6 +27,10 @@ Actividad.init(
         type: DataTypes.STRING,
         allowNull: false,
       },
+      estado: {
+        type: DataTypes.STRING,
+        allowNull: false,
+      },
   },
   {
     sequelize,
@@ -36,7 +39,12 @@ Actividad.init(
   },
 );
 
+Actividad.Calendario = Actividad.belongsTo(Calendario, {
+  foreignKey: {
+    allowNull: true,
+  },
+});
 
-
+Actividad.sync()
 
 module.exports = Actividad;
