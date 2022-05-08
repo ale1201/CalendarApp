@@ -1,51 +1,25 @@
-import React, { useState, useContext, useEffect } from "react";
-import "./App.css";
-import { getMonth } from "./util";
-import CalendarHeader from "./components/CalendarHeader";
-import Sidebar from "./components/Sidebar";
-import Sidebarizq from "./components/Sidebarizq";
-import Month from "./components/Month";
-import GlobalContext from "./context/GlobalContext";
-import EventModal from "./components/EventModal";
-import { AppRouter } from "./router/AppRouter";
+import React, {Fragment} from 'react';
+import {BrowserRouter as Router, Route, Routes} from 'react-router-dom';
+import Profile from "./components/users/Profile";
+import Main from "./components/Main";
+//import { AppRouter } from "./router/AppRouter";
 function App() {
-  const [currenMonth, setCurrentMonth] = useState(getMonth());
-  const { monthIndex, showEventModal } = useContext(GlobalContext);
-  const [backendData, setBackendData] = useState([{}]);
 
-  useEffect (()=>{
-    fetch("/api").then(
-      response => response.json()
-    ).then(
-       data => {
-         setBackendData(data)
-       }
-    )
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [])
+  //const [backendData, setBackendData] = useState([{}]);
 
-  useEffect(() => {
-    setCurrentMonth(getMonth(monthIndex));
-  }, [monthIndex]);
-
-
-  console.log(backendData);
+  //console.log(backendData);
   return (
-    
-    
-    <React.Fragment>
-      {showEventModal && <EventModal />}
 
-      <div className="h-screen flex flex-col">
-        
-        <CalendarHeader />
-        <div className="flex flex-1">
-        <Sidebar />
-          <Month month={currenMonth} />
-          <Sidebarizq />
-        </div>
-      </div>
-    </React.Fragment>
+    <Router>
+      <Fragment>
+        <Routes>
+          <Route exact path='/' element={<Main/>} />
+          <Route exact path='/perfil' element={<Profile/>} />
+        </Routes>
+      </Fragment>
+    </Router>
+
+    
   );
 }
 

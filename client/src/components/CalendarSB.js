@@ -1,10 +1,10 @@
 import dayjs from "dayjs";
 import React, { useContext } from "react";
-import logo from "../assets/logo.png";
+//import logo from "../assets/logo.png";
 import GlobalContext from "../context/GlobalContext";
 export default function CalendarHeader() {
-  const { monthIndex, setMonthIndex } = useContext(GlobalContext);
-  function handlePrevMonth() {
+  const { monthIndex } = useContext(GlobalContext);
+  /* function handlePrevMonth() {
     setMonthIndex(monthIndex - 1);
   }
   function handleNextMonth() {
@@ -16,7 +16,7 @@ export default function CalendarHeader() {
         ? monthIndex + Math.random()
         : dayjs().month()
     );
-  }
+  } */
   return (
     <body className="p-5 w-64 align=center" >
      

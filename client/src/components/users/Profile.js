@@ -1,29 +1,26 @@
-import { Box, Container, Grid } from "@mui/material";
-import { AccountProfile } from "./account-profile";
+import React from "react";
+import Header from "./Header";
+
 //import Calendar from "./Calendar";
 
 
-const Account = () => (
-  <>
-    <Box
-      component="main"
-      sx={{
-        flexGrow: 1,
-        py: 8,
-      }}
-    >
-      <Container maxWidth="lg">
-        <Grid container spacing={3}>
-          <Grid item lg={4} md={6} xs={12}>
-            <AccountProfile />
-          </Grid>
-        </Grid>
-      </Container>
-    </Box>
-    <Box>
+function Profile () {
 
-    </Box>
-  </>
-);
+  return (
+    <React.Fragment>
 
-export default Account;
+      <div className="h-screen flex flex-col">
+        
+        <Header />
+        <div className="flex flex-1">
+
+        </div>
+      </div>
+    </React.Fragment>
+  );
+  
+  
+
+}
+
+export default Profile;
