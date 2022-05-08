@@ -8,7 +8,7 @@ export default function CreateEventButton() {
       onClick={() => setShowEventModal(true)}
       className=" p-2 rounded-full shadow-md hover:shadow-2xl w-30 bg-blue-200 "
     >
-      <span className="pl-5 pr-5 ">  Nueva tarea</span>
+      <span className="pl-5 pr-5 text-blue-600 font-bold ">  Nueva tarea</span>
     </button>
      
   );
