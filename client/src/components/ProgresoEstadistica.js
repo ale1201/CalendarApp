@@ -6,9 +6,9 @@ export default function CreateEventButton() {
   return (
     <button
       onClick={() => setShowEventModal(true)}
-      className=" p-2 rounded-full shadow-md hover:shadow-2xl w-30 bg-blue-200 "
+      className=" p-2 rounded-full shadow-md hover:shadow-2xl w-30 bg-blue-200"
     >
-      <span className="pl-5 pr-5 ">  Nueva tarea</span>
+      <span className="pl-1 pr-1 ">Progreso general</span>
     </button>
      
   );

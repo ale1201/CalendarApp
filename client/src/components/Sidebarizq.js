@@ -23,9 +23,9 @@ export default function Sidebarizq() {
   
   return (
    
-    <aside className="m-3 border p-5 w-64 ">
-     
-     
+    <aside className="m-3 border p-6 w-70 ">
+       
+       
        <CalendarSB   />
        
     

@@ -1,4 +1,5 @@
 import dayjs from "dayjs";
+import "./CalendarHeader.css"
 import CreateEventButton from "./CreateEventButton";
 import React, { useContext } from "react";
 import logo from "../assets/logo.png";
@@ -19,9 +20,12 @@ export default function CalendarHeader() {
     );
   }
   return (
-    <header className="px-4 py-2 flex items-center">
+    <header className="px-6 py-7 flex items-center bg-blue-400">
+       <h1 className="mr-4 text-xl  font-bold">
+        Hola, Sara. 
+      </h1>
       
-      <h1 className="mr-4 text-xl text-gray-500 font-bold">
+      <h1 className="px-1 mr-4 text-xl text-gray-500 font-bold">
         {dayjs(new Date(dayjs().year(), monthIndex)).format(
           "MMMM YYYY"
         )}
@@ -42,15 +46,6 @@ export default function CalendarHeader() {
         </span>
       </button>
     
-      <h4 className="ml-4 text-x2 font-bold align-right">
-      <button
-        onClick={handleReset}
-        className=" border rounded  p-2 rounded-full shadow-md hover:shadow-2xl w-30 bg-blue-300"
-      >
-        
-        <span className="pl-3 pr-3 align-right"> Hoy   </span>
-      </button>
-      </h4>
     </header>
   
   );

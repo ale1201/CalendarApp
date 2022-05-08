@@ -1,7 +1,9 @@
 import React, { useContext } from "react";
 import CreateEventButton from "./CreateEventButton";
+import RegistrarProgreso from "./RegistrarProgreso"
 import dayjs from "dayjs";
 import SmallCalendar from "./SmallCalendar";
+import ProgresoEstadistica from "./ProgresoEstadistica"
 import CalendarSB from "./CalendarSB";
 import GlobalContext from "../context/GlobalContext";
 import Labels from "./Labels";
@@ -23,12 +25,18 @@ export default function Sidebar() {
   
   return (
    
-    <aside className="m-3 border rounded align-right p-5 w-70 ">
+    <aside className="m-3 border rounded align-right p-5 w-100">
      
-      
-     <CreateEventButton  />
-   
-     <Labels />
+     <nav className="m4"  />
+       <CreateEventButton  />
+       <nav />
+       <nav className="m4  p-2 w-40"  />
+       <RegistrarProgreso />
+       <nav />
+       <nav className="m4  p-2 w-40"  />
+       <ProgresoEstadistica/>
+       <nav />
+     
     </aside>
      
 
