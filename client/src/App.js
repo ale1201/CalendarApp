@@ -7,6 +7,7 @@ import Sidebarizq from "./components/Sidebarizq";
 import Month from "./components/Month";
 import GlobalContext from "./context/GlobalContext";
 import EventModal from "./components/EventModal";
+import { AppRouter } from "./router/AppRouter";
 function App() {
   const [currenMonth, setCurrentMonth] = useState(getMonth());
   const { monthIndex, showEventModal } = useContext(GlobalContext);
@@ -30,10 +31,13 @@ function App() {
 
   console.log(backendData);
   return (
+    
+    
     <React.Fragment>
       {showEventModal && <EventModal />}
 
-      <div className="h-screen flex flex-col mg-4 ">
+      <div className="h-screen flex flex-col">
+        
         <CalendarHeader />
         <div className="flex flex-1">
         <Sidebar />
