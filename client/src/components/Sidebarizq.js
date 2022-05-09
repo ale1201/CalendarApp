@@ -1,13 +1,13 @@
-import React, { useContext } from "react";
-import CreateEventButton from "./CreateEventButton";
-import dayjs from "dayjs";
+import React from "react";
+//import CreateEventButton from "./CreateEventButton";
+//import dayjs from "dayjs";
 import SmallCalendar from "./SmallCalendar";
 import CalendarSB from "./CalendarSB";
-import GlobalContext from "../context/GlobalContext";
-import Labels from "./Labels";
+//import GlobalContext from "../context/GlobalContext";
+//import Labels from "./Labels";
 export default function Sidebarizq() {
-    const { monthIndex, setMonthIndex } = useContext(GlobalContext);
-    function handlePrevMonth() {
+    //const { monthIndex, setMonthIndex } = useContext(GlobalContext);
+    /* function handlePrevMonth() {
       setMonthIndex(monthIndex - 1);
     }
     function handleNextMonth() {
@@ -19,7 +19,7 @@ export default function Sidebarizq() {
           ? monthIndex + Math.random()
           : dayjs().month()
       );
-    }
+    } */
   
   return (
    
