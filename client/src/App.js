@@ -7,6 +7,7 @@ import Sidebarizq from "./components/Sidebarizq";
 import Month from "./components/Month";
 import GlobalContext from "./context/GlobalContext";
 import EventModal from "./components/EventModal";
+import Tareas from "./components/Tareas"
 function App() {
   const [currenMonth, setCurrentMonth] = useState(getMonth());
   const { monthIndex, showEventModal } = useContext(GlobalContext);
@@ -38,6 +39,7 @@ function App() {
         <div className="flex flex-1">
         <Sidebar />
           <Month month={currenMonth} />
+          <Tareas/>
           <Sidebarizq />
         </div>
       </div>
