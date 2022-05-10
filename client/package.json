@@ -4,6 +4,7 @@
   "proxy": "http://localhost:5000",
   "private": true,
   "dependencies": {
+    "@auth0/auth0-react": "^1.10.1",
     "@craco/craco": "^6.4.3",
     "@emotion/react": "^11.9.0",
     "@emotion/styled": "^11.8.1",

@@ -8,7 +8,7 @@
 import { useNavigate } from "react-router-dom";
 
 
-export default function CalendarHeader() { 
+export default function Header() { 
 
     let navigate = useNavigate(); 
   const routeChange = () =>{ 

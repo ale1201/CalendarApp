@@ -23,6 +23,7 @@
     "nodemon": "^2.0.14",
     "pg": "^8.7.1",
     "pg-hstore": "^2.3.4",
+    "react-native-web": "^0.17.7",
     "react-router-dom": "^6.3.0",
     "reflect-metadata": "^0.1.10",
     "sequelize": "^6.19.0",
