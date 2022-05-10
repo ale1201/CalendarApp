@@ -4,7 +4,7 @@ import { getMonth } from "../util";
 import CalendarHeader from "./CalendarHeader";
 import Sidebar from "./Sidebar";
 import Tareas from "./Tareas";
-import Sidebarizq from "./Sidebarizq";
+//import Sidebarizq from "./Sidebarizq";
 import Month from "./Month";
 import GlobalContext from "../context/GlobalContext";
 import EventModal from "./EventModal";

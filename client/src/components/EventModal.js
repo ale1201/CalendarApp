@@ -9,20 +9,20 @@ const labelsClasses = [
   "red",
   "purple",
 ];
-const categorias = [
+/* const categorias = [
   "Reunión academica",
   "Parcial",
   "Ejercicio",
   "Amigos",
   "Trabajo",
   "Repaso academico",
-];
+]; */
 
 export default function EventModal() {
   const {
     setShowEventModal,
     daySelected,
-    indexCategoria,
+    //indexCategoria,
     dispatchCalEvent,
     selectedEvent,
   } = useContext(GlobalContext);
@@ -39,9 +39,6 @@ export default function EventModal() {
       : labelsClasses[0]
   );
 
-  function color(nume){
-       
-  }
 
   function handleSubmit(e) {
     e.preventDefault();

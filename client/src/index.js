@@ -7,7 +7,7 @@ import reportWebVitals from "./reportWebVitals";
 import ContextWrapper from "./context/ContextWrapper";
 ReactDOM.render(
   <React.StrictMode>
-    <Auth0Provider>
+    <Auth0Provider domain="dev-m2j2lukt.us.auth0.com" clientId="PczvM7QErk1xya8cjcCgBHqIueVlaS6L" redirectUri={window.location.origin}>
     <ContextWrapper>
       <App />
     </ContextWrapper>
