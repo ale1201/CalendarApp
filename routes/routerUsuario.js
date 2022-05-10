@@ -36,17 +36,17 @@ router.get("/:id", function (req, res) {
   });
 });
 
-//GET usuario by username
-router.get("/username/:username", function (req, res) {
+//GET usuario by email
+router.get("/email/:email", function (req, res) {
   Usuario.findOne({
     where: {
-      username: req.params.username,
+      email: req.params.email,
     },
   }).then((response) => {
     if (response === null) {
       return res
         .status(404)
-        .send("El usuario con el usuario indicado no existe.");
+        .send("El usuario con el email indicado no existe.");
     }
     res.send(response);
   });
@@ -89,7 +89,7 @@ router.post("/", function (req, res) {
 });
 
 //PUT update usuario by id
-router.put("/:id", middleware.checkToken, function (req, res) {
+router.put("/:id", function (req, res) {
   const { error } = validate(req.body);
   if (error) {
     return res.status(400).send(error.message);
@@ -108,7 +108,7 @@ router.put("/:id", middleware.checkToken, function (req, res) {
 });
 
 //DELETE usuario by id
-router.delete("/:id", middleware.checkToken, function (req, res) {
+router.delete("/:id", function (req, res) {
   Usuario.destroy({
     where: {
       id: req.params.id,
@@ -231,6 +231,8 @@ const validate = (user) => {
     id: Joi.number(),
     username: Joi.string().max(50).required(),
     contrasena: Joi.string().required(),
+    imagen: Joi.string(),
+    email: Joi.string().required(),
     semestre: Joi.number().required(),
     puntos: Joi.number(),
     sal: Joi.string(),

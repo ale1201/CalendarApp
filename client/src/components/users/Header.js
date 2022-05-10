@@ -6,20 +6,21 @@
 //import logo from "../assets/logo.png";
 //import GlobalContext from "../context/GlobalContext";
 import { useNavigate } from "react-router-dom";
+import LogoutButton from "../logout/logout"
 
 
 export default function Header() { 
 
     let navigate = useNavigate(); 
   const routeChange = () =>{ 
-    let path = `/`; 
+    let path = `/main`; 
     navigate(path);
   }
     
   return (
     <header className="px-6 py-7 flex items-center bg-blue-400">
        <h1 className="mr-4 text-xl  font-bold">
-        Hola, Sara. 
+       CalendApp
       </h1>
       
 
@@ -31,6 +32,10 @@ export default function Header() {
       <span className="pl-5 pr-5 ">  Mi Calendario </span>
     </button>
       </div>
+
+      <div className=""  style={{marginLeft: 10 + 'em'}} >
+            <LogoutButton/>
+        </div>
     
     </header>
   

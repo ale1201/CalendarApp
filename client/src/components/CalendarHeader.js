@@ -7,9 +7,13 @@ import "./CalendarHeader.css"
 import React, { useContext } from "react";
 //import logo from "../assets/logo.png";
 import GlobalContext from "../context/GlobalContext";
+import LogoutButton from "./logout/logout"
+import { useAuth0 } from "@auth0/auth0-react";
 
 
 export default function CalendarHeader() {
+
+  const {user} = useAuth0();
 
   let navigate = useNavigate(); 
   const routeChange = () =>{ 
@@ -31,10 +35,11 @@ export default function CalendarHeader() {
         : dayjs().month()
     );
   } */
+  console.log(JSON.stringify(user))
   return (
     <header className="px-6 py-7 flex items-center bg-blue-400">
        <h1 className="mr-4 text-xl  font-bold">
-        Hola, Sara. 
+        CalendApp
       </h1>
       
       <h1 className="px-1 mr-4 text-xl text-gray-500 font-bold">
@@ -66,6 +71,11 @@ export default function CalendarHeader() {
       <span className="pl-5 pr-5 ">  Perfil </span>
     </button>
       </div>
+
+      <div className=""  style={{marginLeft: 10 + 'em'}} >
+            <LogoutButton/>
+        </div>
+     
     
     </header>
   

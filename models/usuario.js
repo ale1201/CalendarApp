@@ -15,6 +15,14 @@ Usuario.init(
       type: DataTypes.STRING,
       allowNull: false,
     },
+    imagen: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
+    email: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
     semestre: {
       type: DataTypes.INTEGER,
       allowNull: false,

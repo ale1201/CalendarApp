@@ -9,7 +9,11 @@ import Month from "./Month";
 import GlobalContext from "../context/GlobalContext";
 import EventModal from "./EventModal";
 //import { AppRouter } from "./router/AppRouter";
+
 function Main() {
+
+  
+
   const [currenMonth, setCurrentMonth] = useState(getMonth());
   const { monthIndex, showEventModal } = useContext(GlobalContext);
   //const [backendData, setBackendData] = useState([{}]);
