@@ -27,10 +27,10 @@ export default function Sidebar() {
    
     <aside className="m-3 border rounded align-right p-5 w-100">
      
-     <nav className="m10"  />
+     <nav className="m4"  />
        <CreateEventButton  />
        <nav />
-       <nav className="m10  p-2 w-40"  />
+       <nav className="m4  p-2 w-40"  />
        <RegistrarProgreso />
        <nav />
        <nav className="m4  p-2 w-40"  />

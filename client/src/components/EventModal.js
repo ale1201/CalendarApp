@@ -82,7 +82,7 @@ export default function EventModal() {
             <input
               type="text"
               name="title"
-              placeholder="Añadir titulo"
+              placeholder="Add title"
               value={title}
               required
               className="pt-3 border-0 text-gray-600 text-xl font-semibold pb-2 w-full border-b-2 border-gray-200 focus:outline-none focus:ring-0 focus:border-blue-500"
@@ -95,11 +95,10 @@ export default function EventModal() {
             <span className="material-icons-outlined text-gray-400">
               segment
             </span>
-            
             <input
               type="text"
               name="description"
-              placeholder="Añadir descripción"
+              placeholder="Add a description"
               value={description}
               required
               className="pt-3 border-0 text-gray-600 pb-2 w-full border-b-2 border-gray-200 focus:outline-none focus:ring-0 focus:border-blue-500"
@@ -113,8 +112,7 @@ export default function EventModal() {
                 <span
                   key={i}
                   onClick={() => setSelectedLabel(lblClass)}
-                  
-                  className={`bg-${lblClass}-500 w-10 h-10 rounded-full flex items-center justify-center cursor-pointer`}
+                  className={`bg-${lblClass}-500 w-6 h-6 rounded-full flex items-center justify-center cursor-pointer`}
                 >
                   {selectedLabel === lblClass && (
                     <span className="material-icons-outlined text-white text-sm">
