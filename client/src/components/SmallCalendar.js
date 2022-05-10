@@ -17,6 +17,7 @@ export default function SmallCalendar() {
     setSmallCalendarMonth,
     setDaySelected,
     daySelected,
+    setShowEventModal,
   } = useContext(GlobalContext);
 
   useEffect(() => {
@@ -77,6 +78,7 @@ export default function SmallCalendar() {
                 onClick={() => {
                   setSmallCalendarMonth(currentMonthIdx);
                   setDaySelected(day);
+                  setShowEventModal(true);
                 }}
                 className={`py-1 w-full ${getDayClass(day)}`}
               >
