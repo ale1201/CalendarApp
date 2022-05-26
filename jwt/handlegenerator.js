@@ -4,7 +4,7 @@ const { Usuario } = require("../models/relations");
 
 class HandlerGenerator {
   login(req, res) {
-    console.log(req.body);
+
     let username = req.body.username;
     let password = req.body.contrasena;
     let mockedUsername = "toBeImportedFromDB";
@@ -24,7 +24,7 @@ class HandlerGenerator {
         mockedPassword = usuario.contrasena;
         mockedSalt = usuario.sal;
         if (username && password) {
-          console.log("miauuu")
+
           console.log(Usuario.generateHash("123456", "$2a$08$bTeeOH1enkitRRdZJJ80de"))
           password = Usuario.generateHash(password, mockedSalt);
           console.log("miauuusdsf")

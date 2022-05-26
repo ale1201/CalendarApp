@@ -8,25 +8,39 @@ import Tareas from "./Tareas";
 import Month from "./Month";
 import GlobalContext from "../context/GlobalContext";
 import EventModal from "./EventModal";
+import PointsModal from "./PointsModal";
+
 //import { AppRouter } from "./router/AppRouter";
 
-function Main() {
+function Main({ current_user }) {
 
   
-
+  
+  
   const [currenMonth, setCurrentMonth] = useState(getMonth());
-  const { monthIndex, showEventModal } = useContext(GlobalContext);
-  //const [backendData, setBackendData] = useState([{}]);
+  const { monthIndex, showEventModal, showPointsModal} = useContext(GlobalContext);
+
+  //const [savedEvents] = useContext(GlobalContext);
+
+    
+
+    useEffect(() => {
+      fetch('http://localhost:5000/api/usuario/'+current_user.id)
+      .then(async (response) => response.json())
+      .then(data => localStorage.setItem('user_id', JSON.stringify(data.id)))
+    })
 
 
   useEffect(() => {
+    
     setCurrentMonth(getMonth(monthIndex));
   }, [monthIndex]);
 
-  //console.log(backendData);
   return (
     <React.Fragment>
       {showEventModal && <EventModal />}
+
+      {showPointsModal && <PointsModal />}
 
       <div className="h-screen flex flex-col">
         

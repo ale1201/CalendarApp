@@ -6,7 +6,7 @@ import RegistrarProgreso from "./RegistrarProgreso"
 import ProgresoEstadistica from "./ProgresoEstadistica"
 //import CalendarSB from "./CalendarSB";
 //import GlobalContext from "../context/GlobalContext";
-//import Labels from "./Labels";
+import Labels from "./Labels";
 export default function Sidebar() {
     //const { monthIndex, setMonthIndex } = useContext(GlobalContext);
     /* function handlePrevMonth() {
@@ -35,6 +35,10 @@ export default function Sidebar() {
        <nav />
        <nav className="m4  p-2 w-40"  />
        <ProgresoEstadistica/>
+       <nav />
+
+       <nav className="m4  p-2 w-40"  />
+       <Labels/>
        <nav />
      
     </aside>

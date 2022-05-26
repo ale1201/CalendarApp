@@ -1,35 +1,43 @@
 const { DataTypes, Model } = require("sequelize");
 const sequelize = require("../lib/sequelize");
 
-const Calendario = require("./calendario");
+const Usuario = require("./usuario");
 
 class Actividad extends Model { }
 
 Actividad.init(
   {
-    fecha: {
-      type: DataTypes.DATEONLY,
-      allowNull: false,
-    },
-    hora_inicio: {
+    title: {
       type: DataTypes.STRING,
       allowNull: false,
     },
-    hora_fin: {
+    day: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+    },
+    hourIni: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
+    hourFin: {
         type: DataTypes.STRING,
         allowNull: false,
       },
-      descripcion: {
+      description: {
         type: DataTypes.STRING,
         allowNull: false,
       },
-      prioridad: {
+    label: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
+    priority: {
         type: DataTypes.STRING,
         allowNull: false,
       },
       estado: {
         type: DataTypes.STRING,
-        allowNull: false,
+        allowNull: true,
       },
   },
   {
@@ -39,7 +47,7 @@ Actividad.init(
   },
 );
 
-Actividad.Calendario = Actividad.belongsTo(Calendario, {
+Actividad.Usuario = Actividad.belongsTo(Usuario, {
   foreignKey: {
     allowNull: true,
   },

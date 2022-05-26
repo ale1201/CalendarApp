@@ -12,6 +12,7 @@ function savedEventsReducer(state, { type, payload }) {
     case "push":
       return [...state, payload];
     case "update":
+      
       return state.map((evt) =>
         evt.id === payload.id ? payload : evt
       );
@@ -21,6 +22,8 @@ function savedEventsReducer(state, { type, payload }) {
       throw new Error();
   }
 }
+
+
 function initEvents() {
   const storageEvents = localStorage.getItem("savedEvents");
   const parsedEvents = storageEvents ? JSON.parse(storageEvents) : [];
@@ -32,7 +35,9 @@ export default function ContextWrapper(props) {
   const [smallCalendarMonth, setSmallCalendarMonth] = useState(null);
   const [daySelected, setDaySelected] = useState(dayjs());
   const [showEventModal, setShowEventModal] = useState(false);
+  const [showPointsModal, setShowPointsModal] = useState(false);
   const [selectedEvent, setSelectedEvent] = useState(null);
+  const [selectedStatus, setSelectedStatus] = useState(null);
   const [labels, setLabels] = useState([]);
   const [savedEvents, dispatchCalEvent] = useReducer(
     savedEventsReducer,
@@ -40,7 +45,23 @@ export default function ContextWrapper(props) {
     initEvents
   );
 
+  const [tasks, setTasks]= useState([]);
+
+  useEffect(() => {
+    fetch("http://localhost:5000/api/usuario/" + props.user_id + "/actividades")
+      .then((response) => response.json())
+      .then((data) => {
+        localStorage.setItem("savedEvents", JSON.stringify(data));
+        setTasks(
+          data
+        );
+      });
+  }, []);
+
+
+
   const filteredEvents = useMemo(() => {
+
     return savedEvents.filter((evt) =>
       labels
         .filter((lbl) => lbl.checked)
@@ -98,9 +119,13 @@ export default function ContextWrapper(props) {
         setDaySelected,
         showEventModal,
         setShowEventModal,
+        showPointsModal,
+        setShowPointsModal,
         dispatchCalEvent,
         selectedEvent,
         setSelectedEvent,
+        selectedStatus,
+        setSelectedStatus,
         savedEvents,
         setLabels,
         labels,

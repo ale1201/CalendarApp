@@ -1,4 +1,5 @@
 import React from "react";
+import { useAuth0 } from "@auth0/auth0-react";
 
 const GlobalContext = React.createContext({
   monthIndex: 0,
@@ -9,10 +10,14 @@ const GlobalContext = React.createContext({
   setDaySelected: (day) => {},
   showEventModal: false,
   setShowEventModal: () => {},
+  showPointsModal: false,
+  setShowPointsModal: () => {},
   dispatchCalEvent: ({ type, payload }) => {},
   savedEvents: [],
   selectedEvent: null,
   setSelectedEvent: () => {},
+  selectedStatus: "",
+  setSelectedStatus: () => {},
   setLabels: () => {},
   labels: [],
   updateLabel: () => {},

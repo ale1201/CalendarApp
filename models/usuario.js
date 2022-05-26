@@ -8,16 +8,11 @@ Usuario.init(
   {
     username: {
       type: DataTypes.STRING(50),
-      allowNull: false,
-      unique: true,
-    },
-    contrasena: {
-      type: DataTypes.STRING,
-      allowNull: false,
+      allowNull: false
     },
     imagen: {
       type: DataTypes.STRING,
-      allowNull: false,
+      allowNull: true,
     },
     email: {
       type: DataTypes.STRING,

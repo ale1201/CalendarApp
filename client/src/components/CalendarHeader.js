@@ -35,7 +35,7 @@ export default function CalendarHeader() {
         : dayjs().month()
     );
   } */
-  console.log(JSON.stringify(user))
+
   return (
     <header className="px-6 py-7 flex items-center bg-blue-400">
        <h1 className="mr-4 text-xl  font-bold">

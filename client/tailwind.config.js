@@ -1,4 +1,13 @@
 const labelsClasses = [
+  "estudio",
+  "familia",
+  "amigos",
+  "descando",
+  "ocio",
+  "otro",
+];
+
+const labelsClassesCol = [
   "indigo",
   "gray",
   "green",

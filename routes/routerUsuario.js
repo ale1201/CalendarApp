@@ -2,7 +2,7 @@ const express = require("express");
 const router = express.Router();
 
 const Joi = require("joi");
-const { Calendario, Usuario, Actividad } = require("../models/relations");
+const { Usuario, Actividad } = require("../models/relations");
 
 const middleware = require("../jwt/middleware");
 
@@ -36,7 +36,7 @@ router.get("/:id", function (req, res) {
   });
 });
 
-//GET usuario by email
+//GET usuario by email. If not, then post
 router.get("/email/:email", function (req, res) {
   Usuario.findOne({
     where: {
@@ -44,13 +44,44 @@ router.get("/email/:email", function (req, res) {
     },
   }).then((response) => {
     if (response === null) {
-      return res
-        .status(404)
-        .send("El usuario con el email indicado no existe.");
+      res.send(null);
     }
+    console.log(response)
     res.send(response);
   });
 });
+
+
+//POST create usuario when no exists
+router.post("/email", function (req, res) {
+  const { error } = validate(req.body);
+  if (error) {
+    return res.status(400).send(error);
+  }
+  Usuario.findOne({
+    where: {
+      email: req.body.email,
+    },
+    }).then((response) => {
+    if (response === null) {
+      req.body.puntos = 0;
+    Usuario.create(req.body)
+    .then((result) => res.send(result))
+    .catch((error) => {
+        console.log(error)
+        res.status(403).send(error);
+    });
+
+    }
+    else{
+      res.send(response);
+    }
+    
+  });
+
+});
+
+
 
 //POST create usuario
 router.post("/", function (req, res) {
@@ -74,7 +105,6 @@ router.post("/", function (req, res) {
     .catch((error) => {
         console.log(error)
         res.status(403).send(error);
-      
     });
 
     }
@@ -89,7 +119,7 @@ router.post("/", function (req, res) {
 });
 
 //PUT update usuario by id
-router.put("/:id", function (req, res) {
+router.patch("/:id", function (req, res) {
   const { error } = validate(req.body);
   if (error) {
     return res.status(400).send(error.message);
@@ -126,8 +156,8 @@ router.delete("/:id", function (req, res) {
 
 //Relations
 
-//POST Calendario by usuario id
-router.post("/:idUsuario/calendario", middleware.checkToken, function (req, res) {
+//POST actividad by usuario id
+router.post("/:idUsuario/actividad", middleware.checkToken, function (req, res) {
   Usuario.findByPk(req.params.idUsuario).then((user) => {
     if (user === null) {
       return res
@@ -139,77 +169,78 @@ router.post("/:idUsuario/calendario", middleware.checkToken, function (req, res)
     //if (error) {
     //  return res.status(400).send(error);
     //}
-    Calendario.create(body).then((calendario) => {
-        calendario.setUsuario(user).then((result) => res.json(result));
+    Actividad.create(body).then((actividad) => {
+      actividad.setUsuario(user).then((result) => res.json(result));
     });
   });
 });
 
-//GET all calendarios by usuario id
-router.get("/:idUsuario/calendario", middleware.checkToken, function (req, res) {
-  Calendario.findAll({
+//GET all actividades by usuario id
+router.get("/:idUsuario/actividades", function (req, res) {
+  Actividad.findAll({
     where: {
       UsuarioId: req.params.idUsuario,
     },
   }).then((response) => {
     if (response.length === 0) {
       res.send(
-        "No existen calendarios para el usuario con id " + req.params.idUsuario,
+        "No existen actividades para el usuario con id " + req.params.idUsuario,
       );
     }
-    res.send(response);
+    else
+      res.send(response);
   });
 });
 
-//GET calendario by id from usuario by user id
+//GET actividad by id from usuario by user id
 router.get(
-  "/:idUsuario/calendario/:idCalendario",
+  "/:idUsuario/actividad/:idActividad",
   middleware.checkToken,
   function (req, res) {
-    Calendario.findOne({
+    Actividad.findOne({
       where: {
-        id: req.params.idCalendario,
+        id: req.params.idActividad,
         UsuarioId: req.params.idUsuario,
       },
     }).then((result) => {
       if (result === null) {
-        res.status(404).send("El calendario no existe en este usuario");
+        res.status(404).send("La actividad no existe en este usuario");
       }
       res.send(result);
     });
   },
 );
 
-//UPDATE calendario by id from usuario by id
+//UPDATE actividad by id from usuario by id
 router.put(
-  "/:idUsuario/calendario/:idCalendario",
+  "/:idUsuario/actividad/:idActividad",
   middleware.checkToken,
   function (req, res) {
-    Calendario.update(req.body, {
+    Actividad.update(req.body, {
       where: {
-        id: req.params.idCalendario,
+        id: req.params.idActividad,
         UsuarioId: req.params.idUsuario,
       },
     }).then((response) => {
       if (response[0] !== 0) {
-        res.send({ message: "Calendario actualizado." });
+        res.send({ message: "Actividad actualizada." });
       } else {
         res.status(404).send({
-          message: "El calendario con el ID indicado no fue encontrado.",
+          message: "La actividad con el ID indicado no fue encontrado.",
         });
       }
     });
   },
 );
 
-//DELETE calendario by id from usuario by id
+//DELETE actividad by id from usuario by id
 router.delete(
-  "/:idUsuario/calendario/:idCalendario",
+  "/:idUsuario/actividad/:idActividad",
   middleware.checkToken,
   function (req, res) {
-    Calendario.destroy({
+    Actividad.destroy({
       where: {
-        id: req.params.idCalendario,
+        id: req.params.idActividad,
         UsuarioId: req.params.idUsuario,
       },
     }).then((response) => {
@@ -217,7 +248,7 @@ router.delete(
         res.status(204).send();
       } else {
         res.status(404).send({
-          message: "El calendario con el ID indicado no fue encontrado.",
+          message: "La actividad con el ID indicado no fue encontrado.",
         });
       }
     });
@@ -229,11 +260,10 @@ router.delete(
 const validate = (user) => {
   const schema = Joi.object({
     id: Joi.number(),
-    username: Joi.string().max(50).required(),
-    contrasena: Joi.string().required(),
+    username: Joi.string().max(50),
     imagen: Joi.string(),
-    email: Joi.string().required(),
-    semestre: Joi.number().required(),
+    email: Joi.string(),
+    semestre: Joi.number(),
     puntos: Joi.number(),
     sal: Joi.string(),
   });

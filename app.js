@@ -9,7 +9,6 @@ var indexRouter = require('./routes/login');
 const frontDomain = "http://localhost:3000";
 
 let usuarioRouter = require("./routes/routerUsuario");
-let calendarioRouter = require("./routes/routerCalendario");
 let actividadRouter = require("./routes/routerActividad");
 
 const app = express();
@@ -62,7 +61,6 @@ app.use(express.static(path.join(__dirname, "client/public")));
 
 app.use('/api', indexRouter);
 app.use("/api/usuario", usuarioRouter);
-app.use("/api/calendario", calendarioRouter);
 app.use("/api/actividad", actividadRouter);
 
 

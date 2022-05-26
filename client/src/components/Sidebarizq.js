@@ -4,7 +4,7 @@ import React from "react";
 import SmallCalendar from "./SmallCalendar";
 import CalendarSB from "./CalendarSB";
 //import GlobalContext from "../context/GlobalContext";
-//import Labels from "./Labels";
+import Labels from "./Labels";
 export default function Sidebarizq() {
     //const { monthIndex, setMonthIndex } = useContext(GlobalContext);
     /* function handlePrevMonth() {

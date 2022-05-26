@@ -21,7 +21,7 @@ router.get("/:id", function (req, res) {
 
 
 //POST create actividad
-router.post("/", middleware.checkToken, function (req, res) {
+router.post("/", function (req, res) {
     const { error } = validate(req.body);
   
     if (error) {
@@ -35,7 +35,7 @@ router.post("/", middleware.checkToken, function (req, res) {
 
 
 //PUT update actividad by id
-router.put("/:id", middleware.checkToken, function (req, res) {
+router.put("/:id", function (req, res) {
   const { error } = validate(req.body);
   if (error) {
     return res.status(400).send(error.message);
@@ -54,7 +54,7 @@ router.put("/:id", middleware.checkToken, function (req, res) {
 });
 
 //DELETE actividad by id
-router.delete("/:id", middleware.checkToken, function (req, res) {
+router.delete("/:id", function (req, res) {
   Actividad.destroy({
     where: {
       id: req.params.id,
@@ -74,12 +74,15 @@ router.delete("/:id", middleware.checkToken, function (req, res) {
 const validate = (user) => {
   const schema = Joi.object({
     id: Joi.number(),
-    fecha: Joi.date().required(),
-    hora_inicio: Joi.string().max(7).required(),
-    hora_fin: Joi.string().max(7).required(),
-    descripcion: Joi.string().required(),
-    prioridad: Joi.string().required(),
-    estado: Joi.string().required(),
+    title: Joi.string().required(),
+    day: Joi.date(),
+    hourIni: Joi.string().max(7).required(),
+    hourFin: Joi.string().max(7).required(),
+    description: Joi.string().required(),
+    priority: Joi.string(),
+    label: Joi.string(),
+    estado: Joi.string().min(0),
+    UsuarioId: Joi.number()
   });
   return schema.validate(user);
 };
