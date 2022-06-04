@@ -19,23 +19,23 @@ export default function Header() {
     
   return (
     <header className="px-6 py-7 flex items-center bg-blue-400">
-       <h1 className="mr-4 text-xl  font-bold">
+       <element className="mr-4 text-xl  font-bold">
        CalendApp
-      </h1>
+      </element>
       
 
-      <div className=""  style={{marginLeft: 64 + 'em'}} >
+      <element className=""  style={{marginLeft: 44 + 'em'}} >
       <button
       className=" p-2 rounded-full shadow-md hover:shadow-2xl w-30 bg-blue-200 "
       onClick={routeChange}
     >
       <span className="pl-5 pr-5 ">  Mi Calendario </span>
     </button>
-      </div>
+      </element>
 
-      <div className=""  style={{marginLeft: 10 + 'em'}} >
+      <element className=""  style={{marginLeft: 4 + 'em'}} >
             <LogoutButton/>
-        </div>
+        </element>
     
     </header>
   

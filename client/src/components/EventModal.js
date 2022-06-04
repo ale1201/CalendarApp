@@ -256,11 +256,10 @@ export default function EventModal() {
           <span className="material-icons-outlined text-gray-400">
             drag_handle
           </span>
-          <div>
+          <element>
             {selectedEvent && (
               <span
                 onClick={() => {
-                  
                   dispatchCalEvent({
                     type: "delete",
                     payload: selectedEvent,
@@ -278,7 +277,7 @@ export default function EventModal() {
                 close
               </span>
             </button>
-          </div>
+          </element>
         </header>
         <div className="p-3">
           <div className="grid grid-cols-1/5 items-end gap-y-7">
