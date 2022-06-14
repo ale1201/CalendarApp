@@ -2,7 +2,7 @@ import React, {Fragment} from 'react';
 import {BrowserRouter as Router, Route, Routes} from 'react-router-dom';
 import Profile from "./components/users/Profile";
 import LoginView from "./components/login/loginView";
-import Aux from "./components/aux";
+import Aux from "./components/au";
 //import { AppRouter } from "./router/AppRouter";
 function App() {
 
