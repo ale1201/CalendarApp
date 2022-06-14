@@ -3,7 +3,7 @@ import {BrowserRouter as Router, Route, Routes} from 'react-router-dom';
 import ReactDOM from "react-dom";
 import Profile from "./components/users/Profile";
 import LoginView from "./components/login/loginView";
-import Aux from "./components/aux";
+import Aux from "./components/au";
 import "./index.css";
 import App from "./App";
 import {Auth0Provider } from "@auth0/auth0-react";
