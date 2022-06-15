@@ -13,19 +13,21 @@ const labelsClasses = [
   "purple",
 ];
 
+const categorias = [
+  "Examen",
+  "Ejercicio",
+  "Parcial",
+  "Amigos",
+  "Reunion",
+  "Trabajo",
+]
+
 const Countries = [
   "s",
   "h"
 ];
 
-/* const categorias = [
-  "Reunión academica",
-  "Parcial",
-  "Ejercicio",
-  "Amigos",
-  "Trabajo",
-  "Repaso academico",
-]; */
+
 
 export default function EventModal() {
   const {
@@ -85,6 +87,7 @@ export default function EventModal() {
   );
   const [estado, setEstado] = useState(
     selectedEvent ? selectedEvent.estado : null
+
   );
   const [selectedLabel, setSelectedLabel] = useState(
     selectedEvent
@@ -448,20 +451,22 @@ export default function EventModal() {
             <span className="material-icons-outlined text-gray-400">
               bookmark_border
             </span>
+            <div className="row">
+            {selectedEvent && conditionals() && <p>Categoría: {selectedEvent.label}</p>}
+            {(!selectedEvent || (selectedEvent && !conditionals())) && <p>Categoria:</p>}
+            {(!selectedEvent || (selectedEvent && !conditionals())) && <select id="hourIni" onChange={(e) => setSelectedLabel(e.target.value)} value={selectedLabel}>
+              <option value="indigo">Examen</option>
+              <option value="gray">Ejercicio</option>
+              <option value="green">Parcial</option>
+              <option value="blue">Amigos</option>
+              <option value="red">Reunión Academica</option>
+              <option value="purple">Trabajo</option>
+            </select>}
+            
+            </div>
+           
             <div className="flex gap-x-2">
-              {labelsClasses.map((lblClass, i) => (
-                <span
-                  key={i}
-                  onClick={() => setSelectedLabel(lblClass)}
-                  className={`bg-${lblClass}-500 w-6 h-6 rounded-full flex items-center justify-center cursor-pointer`}
-                >
-                  {selectedLabel === lblClass && (
-                    <span className="material-icons-outlined text-white text-sm">
-                      check
-                    </span>
-                  )}
-                </span>
-              ))}
+          
             </div>
 
             {selectedEvent &&  conditionals() && <span className="material-icons-outlined text-gray-400">

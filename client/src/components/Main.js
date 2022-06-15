@@ -2,9 +2,9 @@ import React, { useState, useContext, useEffect } from "react";
 import "../App.css";
 import { getMonth } from "../util";
 import CalendarHeader from "./CalendarHeader";
+import Sidebarizq from "./Sidebarizq"
 import Sidebar from "./Sidebar";
 import Tareas from "./Tareas";
-//import Sidebarizq from "./Sidebarizq";
 import Month from "./Month";
 import GlobalContext from "../context/GlobalContext";
 import EventModal from "./EventModal";
@@ -48,7 +48,7 @@ function Main({ current_user }) {
         <div className="flex flex-1">
         <Sidebar />
           <Month month={currenMonth} />
-          <Tareas/>
+          <Sidebarizq/>
         </div>
       </div>
     </React.Fragment>
