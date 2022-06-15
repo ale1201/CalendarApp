@@ -148,7 +148,8 @@ export default function EventModal() {
       });
   }
 
-  async function deleteTask(id) {
+  async function deleteTask(id, estado) {
+    updatePoints({"puntos": usuario.puntos -= puntos[estado]})
     fetch("http://localhost:5000/api/actividad/"+id, {
       method: "DELETE",
     }).then((res) => res.text()) // or res.json()
@@ -268,7 +269,7 @@ export default function EventModal() {
                     payload: selectedEvent,
                   });
                   setShowEventModal(false);
-                  deleteTask(selectedEvent.id);
+                  deleteTask(selectedEvent.id, selectedEvent.estado);
                 }}
                 className="material-icons-outlined text-gray-400 cursor-pointer"
               >
