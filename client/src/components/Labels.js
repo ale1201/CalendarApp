@@ -4,7 +4,7 @@ import GlobalContext from "../context/GlobalContext";
 const categorias = [
   "Examen:indigo",
   "Ejercicio:gray",
-  "Parcial:green",
+  "Proyecto:green",
   "Amigos:blue",
   "Reunion academica:red",
   "Trabajo:purple",

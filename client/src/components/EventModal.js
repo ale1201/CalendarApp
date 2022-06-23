@@ -16,7 +16,7 @@ const labelsClasses = [
 const categorias = [
   "Examen",
   "Ejercicio",
-  "Parcial",
+  "Proyecto",
   "Amigos",
   "Reunion",
   "Trabajo",
@@ -158,6 +158,7 @@ export default function EventModal() {
 
 
   function conditionals() {
+
     var cond1 = selectedEvent.hourFin.localeCompare(hora) === -1
 
     var newday = hoy.setHours(0,0,0,0)
@@ -457,7 +458,7 @@ export default function EventModal() {
             {(!selectedEvent || (selectedEvent && !conditionals())) && <select id="hourIni" onChange={(e) => setSelectedLabel(e.target.value)} value={selectedLabel}>
               <option value="indigo">Examen</option>
               <option value="gray">Ejercicio</option>
-              <option value="green">Parcial</option>
+              <option value="green">Proyecto</option>
               <option value="blue">Amigos</option>
               <option value="red">Reunión Academica</option>
               <option value="purple">Trabajo</option>
