@@ -1,19 +1,32 @@
 
 import React, { useContext, useState, useEffect }from 'react';
 import Pie from "./pie.js"
+import GraphWeek from "./graphWeek.js"
+import dayjs from "dayjs";
 
 
 export default function BodyRight() { 
 
     const [actividades, setActividades] = useState([]);
+    const [actSemana, setActSemana] = useState([])
+
+    var hoy = new Date(dayjs());
+    var h = hoy.getMilliseconds()
+    var newday = hoy.setHours(0,0,0,0)
+
+    console.log(h.valueOf())
+    console.log(newday.valueOf())
 
     useEffect(() => {
         fetch("http://localhost:5000/api/usuario/" + localStorage.getItem('user_id') + "/actividades")
           .then((response) => response.json())
           .then((data) => {
             setActividades(
-              data
+              data.filter((el) => (el.estado !== null))
             );
+            setActSemana(
+                 data.filter((el) => (newday.valueOf()-el.day) <= 604800000 ),
+             )
           });
       }, []);
     if (actividades.length !== 0){
@@ -27,9 +40,8 @@ export default function BodyRight() {
                     obtendrás un mayor rango. </h4>
                 <br>
                 </br>
-                <br>
-                </br>
                 <Pie actividades={actividades}/>
+                <GraphWeek actividades={actSemana}/>
     
            </div>
         );
