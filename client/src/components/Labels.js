@@ -1,14 +1,7 @@
 import React, { useContext } from "react";
 import GlobalContext from "../context/GlobalContext";
 
-const categorias = [
-  "Examen:indigo",
-  "Ejercicio:gray",
-  "Proyecto:green",
-  "Amigos:blue",
-  "Reunion academica:red",
-  "Trabajo:purple",
-]
+
 export default function Labels() {
   const { labels, updateLabel } = useContext(GlobalContext);
   return (

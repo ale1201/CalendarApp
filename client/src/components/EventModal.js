@@ -22,6 +22,15 @@ const categorias = [
   "Trabajo",
 ]
 
+const categorias_dicci = {
+  "indigo": "Examen",
+  "gray": "Ejercicio",
+  "green":"Parcial",
+  "blue": "Amigos",
+  "red": "Reunion",
+  "purple": "Trabajo",
+}
+
 const Countries = [
   "s",
   "h"
@@ -130,7 +139,6 @@ export default function EventModal() {
       },
       body: JSON.stringify(data),
     };
-    console.log("aufff")
     fetch("http://localhost:5000/api/actividad/"+id, requestOptions)
       .then(async (response) => {
         const isJson = response.headers
@@ -148,7 +156,8 @@ export default function EventModal() {
       });
   }
 
-  async function deleteTask(id) {
+  async function deleteTask(id, estado) {
+    updatePoints({"puntos": usuario.puntos -= puntos[estado]})
     fetch("http://localhost:5000/api/actividad/"+id, {
       method: "DELETE",
     }).then((res) => res.text()) // or res.json()
@@ -269,7 +278,7 @@ export default function EventModal() {
                     payload: selectedEvent,
                   });
                   setShowEventModal(false);
-                  deleteTask(selectedEvent.id);
+                  deleteTask(selectedEvent.id, selectedEvent.estado);
                 }}
                 className="material-icons-outlined text-gray-400 cursor-pointer"
               >
@@ -453,7 +462,7 @@ export default function EventModal() {
               bookmark_border
             </span>
             <div className="row">
-            {selectedEvent && conditionals() && <p>Categoría: {selectedEvent.label}</p>}
+            {selectedEvent && conditionals() && <p>Categoría: {categorias_dicci[selectedEvent.label]}</p>}
             {(!selectedEvent || (selectedEvent && !conditionals())) && <p>Categoria:</p>}
             {(!selectedEvent || (selectedEvent && !conditionals())) && <select id="hourIni" onChange={(e) => setSelectedLabel(e.target.value)} value={selectedLabel}>
               <option value="indigo">Examen</option>
@@ -465,10 +474,12 @@ export default function EventModal() {
             </select>}
             
             </div>
-           
-            <div className="flex gap-x-2">
+
+            {(!selectedEvent || (selectedEvent && !conditionals())) && <div className="flex gap-x-2">
           
-            </div>
+          </div>}
+           
+            
 
             {selectedEvent &&  conditionals() && <span className="material-icons-outlined text-gray-400">
               add_task
