@@ -63,12 +63,12 @@ export default function CalendarHeader() {
         </span>
       </button>
 
-      <element className=""  style={{marginLeft: 40 + 'em'}} >
+      <element className=""  style={{marginLeft: 35 + 'em'}} >
       <button
       className=" p-2 rounded-full shadow-md hover:shadow-2xl w-30 bg-blue-200 "
       onClick={routeChange}
     >
-      <span className="pl-5 pr-5 ">  Perfil </span>
+      <span className="pl-5 pr-5 ">  Mi Progreso </span>
     </button>
       </element>
 

@@ -1,11 +1,10 @@
-
 import React, { useContext, useState, useEffect }from 'react';
 //import { colors } from 'react-select/dist/declarations/src/theme';
 import * as d3 from 'd3';
 import { Box, Card, CardContent, CardHeader, Divider } from "@mui/material";
 
 
-export default function Pie(props) { 
+export default function GraphWeek(props) { 
 
     const [graph, setGraph] = useState([]);
 
@@ -52,14 +51,14 @@ export default function Pie(props) {
 
 
     function pieChart(data) {
-        d3.select("#canvas").select("svg").remove();
+        d3.select("#canvasOtro").select("svg").remove();
     
         const width = 900;
         const height = 400;
         const margin = 0;
         var radius = Math.min(width, height) / 2 - margin;
     
-        const canvas = d3.select("#canvas");
+        const canvas = d3.select("#canvasOtro");
     
         const svg = canvas
           .append("svg")
@@ -156,7 +155,7 @@ export default function Pie(props) {
         console.log(graph)
         return(
             <div className="m-5 flex-1">
-                <h1>Registra la completitud de tus actividades para ver tus estadisticas</h1>
+                <h1>Registra la finalización de tus actividades en los ultimos 7 dīas para poder ver las estadísticas</h1>
             </div>
         );
     }
@@ -166,7 +165,7 @@ export default function Pie(props) {
         <Card {...props} sx={{ width: 900, marginTop: 5 }}>
       <CardHeader
         title={
-          "Tus estadisticas generales"
+          "Estadísticas últimos 7 días"
         }
       />
       <Divider />
@@ -177,7 +176,7 @@ export default function Pie(props) {
             position: "center",
           }}
         >
-          <div id="canvas"> </div>
+          <div id="canvasOtro"> </div>
         </Box>
         <Box
           sx={{

@@ -37,14 +37,14 @@ export default function EventModal() {
           <span className="material-icons-outlined text-gray-400">
             drag_handle
           </span>
-          <div>
 
+          <element>
             <button onClick={() => setShowPointsModal(false)}>
               <span className="material-icons-outlined text-gray-400">
                 close
               </span>
             </button>
-          </div>
+          </element>
         </header>
 
         <div className="p-3" style={{background: '#D893F3'}}>

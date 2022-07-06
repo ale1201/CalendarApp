@@ -19,14 +19,13 @@ export default function BodyLeft() {
           });
       }, []);
 
-    var points = 50;
     var image = '';
     var medal = ''
 
-    if (point <= 10){
+    if (point <= 20){
         image = bronce
         medal = 'Bronce'
-    } else if (point > 10 && point <= 30){
+    } else if (point > 20 && point <= 50){
         image = silver
         medal = 'Plata'
     }
