@@ -50,8 +50,12 @@ export default function EventModal() {
         <div className="p-3" style={{background: '#D893F3'}}>
           <div className="grid grid-cols-1/5 items-end gap-y-7" >
             <div></div>
-
-            <p>Felicidades, ganaste {puntos[selectedStatus]} punto(s) extra!     :)</p>
+            {puntos[selectedStatus] === 5 && (    <p>Felicidades, ganaste {puntos[selectedStatus]} punto(s) extra!  - Sigue gestionando tu tiempo de la misma manera, para poder completar todas tus actividades propuestas :)</p>)}
+            {puntos[selectedStatus] === 4 && (    <p>Felicidades, ganaste {puntos[selectedStatus]} punto(s) extra!  - Al poder acabar tus actividades antes de tiempo, puedes tener mayor tiempo libre y dedicarlo a otras actividades :)</p>)}
+            {puntos[selectedStatus] === 3&& (    <p>Felicidades, ganaste {puntos[selectedStatus]} punto(s) extra!  - Recuerda dedicar el tiempo propuesto para cada actividad, para lograr realizarlas a tiempo :)</p>)}
+            {puntos[selectedStatus] === 2 && (    <p>Felicidades, ganaste {puntos[selectedStatus]} punto(s) extra!  - Recuerda realizar todas las actividades propuestas para que puedas cumplir con tus objetivos :)</p>)}
+            {puntos[selectedStatus] === 1 && (    <p>Felicidades, ganaste {puntos[selectedStatus]} punto(s) extra!  - Puedes priorizar de mejor manera tu tiempo, para que puedas lograr realizar las actividades propuestas :)</p>)}
+        
             
 
           </div>

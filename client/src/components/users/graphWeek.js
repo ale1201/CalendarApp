@@ -162,6 +162,8 @@ export default function GraphWeek(props) {
     else{
         console.log(graph)
     return (
+
+      
         <Card {...props} sx={{ width: 900, marginTop: 5 }}>
       <CardHeader
         title={

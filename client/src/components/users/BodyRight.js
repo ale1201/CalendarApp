@@ -25,7 +25,7 @@ export default function BodyRight() {
               data.filter((el) => (el.estado !== null))
             );
             setActSemana(
-                 data.filter((el) => (newday.valueOf()-el.day) <= 604800000 ),
+                 data.filter((el) => (el.estado !== null)&&(newday.valueOf()-el.day) <= 604800000 ),
              )
           });
       }, []);

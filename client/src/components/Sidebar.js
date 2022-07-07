@@ -1,6 +1,5 @@
 import React from "react";
 import CreateEventButton from "./CreateEventButton";
-import RegistrarProgreso from "./RegistrarProgreso"
 //import dayjs from "dayjs";
 //import SmallCalendar from "./SmallCalendar";
 import ProgresoEstadistica from "./ProgresoEstadistica"
@@ -29,12 +28,6 @@ export default function Sidebar() {
      
      <nav className="m4"  />
        <CreateEventButton  />
-       <nav />
-       <nav className="m4  p-2 w-40"  />
-       <RegistrarProgreso />
-       <nav />
-       <nav className="m4  p-2 w-40"  />
-       <ProgresoEstadistica/>
        <nav />
 
        <nav className="m4  p-2 w-40"  />
