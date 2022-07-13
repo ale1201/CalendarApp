@@ -1,5 +1,4 @@
 import React, { useContext, useState, useEffect } from "react";
-import { Alert } from "react-native";
 //import 'bootstrap/dist/css/bootstrap.min.css';
 import GlobalContext from "../context/GlobalContext";
 import dayjs from "dayjs";
@@ -25,18 +24,11 @@ const categorias = [
 const categorias_dicci = {
   "indigo": "Examen",
   "gray": "Ejercicio",
-  "green":"Parcial",
+  "green":"Proyecto",
   "blue": "Amigos",
-  "red": "Reunion",
+  "red": "Reunión Academica",
   "purple": "Trabajo",
 }
-
-const Countries = [
-  "s",
-  "h"
-];
-
-
 
 export default function EventModal() {
   const {
@@ -62,10 +54,10 @@ export default function EventModal() {
 
   const puntos = {
     "end_on_time": 5,
-    "end_before_time":4,
-    "end_after_time":3,
-    "started_not_finalized":2,
-    "not_started":1
+    "end_before_time":5,
+    "end_after_time":4,
+    "started_not_finalized":3,
+    "not_started":2
   }
   const [usuario, setUsuario] = useState();
 
@@ -105,6 +97,7 @@ export default function EventModal() {
   );
 
   async function createTask(data) {
+    console.log(data)
     const requestOptions = {
       method: "POST",
       mode: "cors",
@@ -224,10 +217,10 @@ export default function EventModal() {
         updatePoints({"puntos": 12})
       }
       dispatchCalEvent({ type: "update", payload: calendarEvent });
-      updateTask(selectedEvent.id, {"title":title,"day":daySelected.valueOf(),"hourIni":hourIni, "hourFin": hourFin, "description": description, "priority":priority, "label": selectedLabel, "UsuarioId":parseInt(localStorage.getItem("user_id"))})
+      updateTask(selectedEvent.id, {"title":title,"day":daySelected.valueOf(),"hourIni":hourIni, "hourFin": hourFin, "description": description, "priority":priority, "label": selectedLabel, "category": categorias_dicci[selectedLabel],"UsuarioId":parseInt(localStorage.getItem("user_id"))})
     } else {
       dispatchCalEvent({ type: "push", payload: calendarEvent });
-      createTask({"id": selectedEvent ? selectedEvent.id : Date.now(), "title":title,"day":daySelected.valueOf(),"hourIni":hourIni, "hourFin": hourFin, "description": description, "priority":priority, "label": selectedLabel, "UsuarioId":parseInt(localStorage.getItem("user_id"))})
+      createTask({"id": selectedEvent ? selectedEvent.id : Date.now(), "title":title,"day":daySelected.valueOf(),"hourIni":hourIni, "hourFin": hourFin, "description": description, "priority":priority, "label": selectedLabel, "category": categorias_dicci[selectedLabel],"UsuarioId":parseInt(localStorage.getItem("user_id"))})
     }
 
     setShowEventModal(false);
@@ -506,14 +499,14 @@ export default function EventModal() {
             onClick={handleSubmitStatus}
             className="bg-blue-500 hover:bg-blue-600 px-6 py-2 rounded text-white"
           >
-            Registrar actividad
+            Registrar estado
           </button>}
         {selectedEvent && !conditionals() && <button
             type="submit"
             onClick={handleSubmit}
             className="bg-blue-500 hover:bg-blue-600 px-6 py-2 rounded text-white"
           >
-            Update
+            Actualizar
           </button>}
 
           {!selectedEvent && <button
@@ -521,7 +514,7 @@ export default function EventModal() {
             onClick={handleSubmit}
             className="bg-blue-500 hover:bg-blue-600 px-6 py-2 rounded text-white"
           >
-            Save
+            Guardar
           </button>}
 
         </footer>
