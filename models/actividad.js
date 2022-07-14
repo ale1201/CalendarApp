@@ -25,11 +25,15 @@ Actividad.init(
       },
       description: {
         type: DataTypes.STRING,
-        allowNull: false,
+        allowNull: true,
       },
     label: {
       type: DataTypes.STRING,
       allowNull: false,
+    },
+    category: {
+      type: DataTypes.STRING,
+      allowNull: true,
     },
     priority: {
         type: DataTypes.STRING,

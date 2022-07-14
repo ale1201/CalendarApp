@@ -3,6 +3,7 @@ import React, { useContext, useState, useEffect }from 'react';
 import Pie from "./pie.js"
 import GraphWeek from "./graphWeek.js"
 import dayjs from "dayjs";
+import Button from '@material-ui/core/Button';
 
 
 export default function BodyRight() { 
@@ -10,12 +11,13 @@ export default function BodyRight() {
     const [actividades, setActividades] = useState([]);
     const [actSemana, setActSemana] = useState([])
 
+    const [prioridad, setPrioridad] = useState("all");
+    const [categoria, setCategoria] = useState("all");
+    const [tiempo, setTiempo] = useState("all");
+
     var hoy = new Date(dayjs());
     var h = hoy.getMilliseconds()
     var newday = hoy.setHours(0,0,0,0)
-
-    console.log(h.valueOf())
-    console.log(newday.valueOf())
 
     useEffect(() => {
         fetch("http://localhost:5000/api/usuario/" + localStorage.getItem('user_id') + "/actividades")
@@ -40,9 +42,59 @@ export default function BodyRight() {
                     obtendrás un mayor rango. </h4>
                 <br>
                 </br>
-                <Pie actividades={actividades}/>
-                <GraphWeek actividades={actSemana}/>
-    
+                <div className='row'>
+                    <div className="col">
+                        <div className='row'>
+                            <p>Prioridad:</p>
+                        </div>
+                        <div className='row'>
+                            <select onChange={(e) => setPrioridad(e.target.value)} value={prioridad}>
+                            <option value="alta">Alta</option>
+                            <option value="media">Media</option>
+                            <option value="baja">Baja</option>
+                            <option value="all">Todas</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div className="col">
+                        <div className='row'>
+                            <p>Categoria:</p>
+                        </div>
+                        <div className='row'>
+                            <select onChange={(e) => setCategoria(e.target.value)} value={categoria}>
+                            <option value="indigo">Examen</option>
+                            <option value="gray">Ejercicio</option>
+                            <option value="green">Proyecto</option>
+                            <option value="blue">Amigos</option>
+                            <option value="red">Reunión Academica</option>
+                            <option value="purple">Trabajo</option>
+                            <option value="all">Todas</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div className="col">
+                        <div className='row'>
+                            <p>Tiempo:</p>
+                        </div>
+                        <div className='row'>
+                            <select onChange={(e) => setTiempo(e.target.value)} value={tiempo}>
+                            <option value="all">General</option>
+                            <option value="week">Últimos 7 días</option>
+                            </select>
+                        </div>
+                    </div>
+
+
+
+                </div>
+
+                <br></br>
+
+                {tiempo === "all" && <Pie actividades={actividades} prioridad={prioridad} categoria={categoria}/>}
+                {tiempo === "week" && <GraphWeek actividades={actSemana} prioridad={prioridad} categoria={categoria}/>}
+
            </div>
         );
     }

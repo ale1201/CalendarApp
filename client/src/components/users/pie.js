@@ -12,8 +12,17 @@ export default function Pie(props) {
     var tiposEstados = ["end_on_time", "end_before_time", "end_after_time", "started_not_finalized", "not_started"]
     let listaPorTipo = [];
     useEffect(() => {
-        console.log(props.actividades)
-        let datos = props.actividades;
+      let datos = props.actividades
+        if( (props.prioridad === "all") && (props.categoria !== "all")){
+          datos = props.actividades.filter((el) => (el.label === props.categoria) );
+        }
+        else if ((props.prioridad !== "all") && (props.categoria === "all")){
+          datos = props.actividades.filter((el) => (el.priority === props.prioridad));
+        }
+        else if ((props.prioridad !== "all") && (props.categoria !== "all")){
+          datos = props.actividades.filter((el) => (el.priority === props.prioridad) && (el.label === props.categoria));
+        }
+
         tiposEstados.forEach((actual) => {
           listaPorTipo.push({ estado: actual, contador: 0 });
         });
@@ -156,7 +165,7 @@ export default function Pie(props) {
         console.log(graph)
         return(
             <div className="m-5 flex-1">
-                <h1>Registra la completitud de tus actividades para ver tus estadisticas</h1>
+                <h1>Aun no hay registros de actividades finalizadas con estas caracteristicas, registra la finalizacion de tus actividades para ver tus estadisticas</h1>
             </div>
         );
     }

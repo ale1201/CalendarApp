@@ -78,10 +78,11 @@ const validate = (user) => {
     day: Joi.date(),
     hourIni: Joi.string().max(7).required(),
     hourFin: Joi.string().max(7).required(),
-    description: Joi.string().required(),
+    description: Joi.string().min(0),
     priority: Joi.string(),
     label: Joi.string(),
     estado: Joi.string().min(0),
+    category: Joi.string(),
     UsuarioId: Joi.number()
   });
   return schema.validate(user);
