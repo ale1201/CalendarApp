@@ -3,7 +3,7 @@ import React, { useContext, useState, useEffect }from 'react';
 import Pie from "./pie.js"
 import GraphWeek from "./graphWeek.js"
 import dayjs from "dayjs";
-import Button from '@material-ui/core/Button';
+import Button from '@mui/material/Button';
 
 
 export default function BodyRight() { 
