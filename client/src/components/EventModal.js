@@ -12,15 +12,6 @@ const labelsClasses = [
   "purple",
 ];
 
-const categorias = [
-  "Examen",
-  "Ejercicio",
-  "Proyecto",
-  "Amigos",
-  "Reunion",
-  "Trabajo",
-]
-
 const categorias_dicci = {
   "indigo": "Examen",
   "gray": "Ejercicio",
@@ -157,16 +148,45 @@ export default function EventModal() {
     .then((res) => console.log(res));
   }
 
-
+  const dict_hour_aux = {
+    "00":"12",
+    "1":"1",
+    "2":"2",
+    "3":"3",
+    "4":"4",
+    "5":"5",
+    "6":"6",
+    "7":"7",
+    "8":"8",
+    "9":"9",
+    "10":"10",
+    "11":"11",
+    "12":"12",
+    "13":"1",
+    "14":"2",
+    "15":"3",
+    "16":"4",
+    "17":"5",
+    "18":"6",
+    "19":"7",
+    "20":"8",
+    "21":"9",
+    "22":"10",
+    "23":"11",
+    "24":"12"
+  }
 
   function conditionals() {
+    var new_hour_fin = dict_hour_aux[selectedEvent.hourFin.split(":")[0]] + ":" + selectedEvent.hourFin.split(":")[1]
+    var new_hour_act = dict_hour_aux[hora.split(":")[0]] + ":" + hora.split(":")[1]
+   
 
-    var cond1 = selectedEvent.hourFin.localeCompare(hora) === -1
+    var cond1 = new_hour_fin.localeCompare(new_hour_act) === -1
 
     var newday = hoy.setHours(0,0,0,0)
 
     
-    return hoy.valueOf() > selectedEvent.day  || (newday.valueOf() == selectedEvent.day && cond1)
+    return hoy.valueOf() > selectedEvent.day  || (newday.valueOf() === selectedEvent.day && cond1)
   }
 
   function updatePoints(data){
@@ -291,7 +311,7 @@ export default function EventModal() {
             {(!selectedEvent || (selectedEvent && !conditionals())) && <input
               type="text"
               name="title"
-              placeholder="Add title"
+              placeholder="Agrega un título"
               value={title}
               required
               className="pt-3 border-0 text-gray-600 text-xl font-semibold pb-2 w-full border-b-2 border-gray-200 focus:outline-none focus:ring-0 focus:border-blue-500"
@@ -428,7 +448,7 @@ export default function EventModal() {
             {(!selectedEvent || (selectedEvent && !conditionals())) && <input
               type="text"
               name="description"
-              placeholder="Add a description"
+              placeholder="Agrega una descripción"
               value={description}
               required
               className="pt-3 border-0 text-gray-600 pb-2 w-full border-b-2 border-gray-200 focus:outline-none focus:ring-0 focus:border-blue-500"

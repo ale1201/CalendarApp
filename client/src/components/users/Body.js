@@ -1,6 +1,3 @@
-import silver from "../../images/silverMedal.png";
-import bronce from "../../images/bronzeMedal.png";
-import gold from "../../images/goldMedal.png";
 import uno from "../../images/1.png";
 import dos from "../../images/2.png";
 import tres from "../../images/3.png";
@@ -9,7 +6,7 @@ import cinco from "../../images/5.png";
 import seis from "../../images/6.png";
 import siete from "../../images/7.png";
 import ocho from "../../images/8.png";
-import React , { useContext, useState, useEffect }from 'react';
+import React , { useState, useEffect }from 'react';
 
 
 export default function BodyLeft() { 
@@ -30,10 +27,10 @@ export default function BodyLeft() {
     var image = '';
     var medal = ''
 
-    if (point <= 7){
+    if (point <= 6){
         image = ocho
         medal = 'Nivel 1'
-    } else if (point > 7 && point <= 14){
+    } else if (point > 6 && point <= 14){
         image = siete
         medal = 'Nivel 2'
     }

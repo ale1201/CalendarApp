@@ -8,12 +8,9 @@ import React, { useContext } from "react";
 //import logo from "../assets/logo.png";
 import GlobalContext from "../context/GlobalContext";
 import LogoutButton from "./logout/logout"
-import { useAuth0 } from "@auth0/auth0-react";
 
 
 export default function CalendarHeader() {
-
-  const {user} = useAuth0();
 
   let navigate = useNavigate(); 
   const routeChange = () =>{ 

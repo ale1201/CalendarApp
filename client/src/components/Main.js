@@ -4,7 +4,6 @@ import { getMonth } from "../util";
 import CalendarHeader from "./CalendarHeader";
 import Sidebarizq from "./Sidebarizq"
 import Sidebar from "./Sidebar";
-import Tareas from "./Tareas";
 import Month from "./Month";
 import GlobalContext from "../context/GlobalContext";
 import EventModal from "./EventModal";
@@ -13,9 +12,6 @@ import PointsModal from "./PointsModal";
 //import { AppRouter } from "./router/AppRouter";
 
 function Main({ current_user }) {
-
-  
-  
   
   const [currenMonth, setCurrentMonth] = useState(getMonth());
   const { monthIndex, showEventModal, showPointsModal} = useContext(GlobalContext);

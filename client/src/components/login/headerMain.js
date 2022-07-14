@@ -1,6 +1,5 @@
 import React from "react";
 import './style_header.css';
-import timetable from "./img/timetable.png"
 import medal from "./img/time.png"
 import { useAuth0 } from '@auth0/auth0-react';
 

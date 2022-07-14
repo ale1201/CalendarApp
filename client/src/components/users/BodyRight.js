@@ -1,9 +1,7 @@
-
-import React, { useContext, useState, useEffect }from 'react';
+import React, { useState, useEffect }from 'react';
 import Pie from "./pie.js"
 import GraphWeek from "./graphWeek.js"
 import dayjs from "dayjs";
-import Button from '@mui/material/Button';
 
 
 export default function BodyRight() { 
@@ -16,8 +14,7 @@ export default function BodyRight() {
     const [tiempo, setTiempo] = useState("all");
 
     var hoy = new Date(dayjs());
-    var h = hoy.getMilliseconds()
-    var newday = hoy.setHours(0,0,0,0)
+    var newday = hoy.setHours(0,0,0,0);
 
     useEffect(() => {
         fetch("http://localhost:5000/api/usuario/" + localStorage.getItem('user_id') + "/actividades")

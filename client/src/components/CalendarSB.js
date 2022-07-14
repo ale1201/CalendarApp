@@ -4,12 +4,8 @@ import React, { useContext, useState, useEffect } from "react";
 import GlobalContext from "../context/GlobalContext";
 export default function CalendarHeader(day) {
   const [dayEvents, setDayEvents] = useState([]);
-  const { monthIndex,
-   setSmallCalendarMonth,
-    setDaySelected,
-    daySelected,
+  const { 
     filteredEvents,
-    setShowEventModal,
     setSelectedEvent, } = useContext(GlobalContext);
     useEffect(() => {
       const events = filteredEvents.filter(
@@ -19,11 +15,6 @@ export default function CalendarHeader(day) {
       setDayEvents(events);
     }, [filteredEvents, day]);
   
-    function getCurrentDayClass() {
-      return day.format("DD-MM-YY") === dayjs().format("DD-MM-YY")
-        ? "bg-blue-400 text-white rounded-full w-7"
-        : "";
-    }
   return (
   
 
