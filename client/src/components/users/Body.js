@@ -66,9 +66,17 @@ export default function BodyLeft() {
     return (
     <aside className="m-5 border rounded align-right p-10 background-blue" style={{background: '#D893F3',}}> 
         <div style={{display: 'flex',  justifyContent:'center', alignItems:'center', fontSize: 27, fontWeight: 'bold'}}>
-    <h1> Tu medalla actual </h1>
-</div>
+    <h1> ¡Descubre la imagen completa!</h1>
+        </div>
+    <div style={{display: 'flex',  justifyContent:'center', alignItems:'center', fontSize: 25}}>
+    <h3> Sigue registrando estados </h3>
+    <br></br>
+        <br></br>
+    </div>
         <img src={image} alt='gold' width={300}/> 
+
+        <br></br>
+        <br></br>
 
         <div style={{display: 'flex',  justifyContent:'center', alignItems:'center', fontSize: 25,}}>
     <h1> {medal} </h1>

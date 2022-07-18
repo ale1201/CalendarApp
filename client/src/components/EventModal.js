@@ -17,7 +17,7 @@ const categorias_dicci = {
   "gray": "Ejercicio",
   "green":"Proyecto",
   "blue": "Amigos",
-  "red": "Reunión Academica",
+  "red": "Reunión Académica",
   "purple": "Trabajo",
 }
 
@@ -482,7 +482,7 @@ export default function EventModal() {
               <option value="gray">Ejercicio</option>
               <option value="green">Proyecto</option>
               <option value="blue">Amigos</option>
-              <option value="red">Reunión Academica</option>
+              <option value="red">Reunión Académica</option>
               <option value="purple">Trabajo</option>
             </select>}
             

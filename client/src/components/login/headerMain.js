@@ -17,7 +17,7 @@ export default function HeaderMain() {
                         <br></br>
                         <br></br>
                         <element class="buttons-wrapper"  style={{paddingLeft: 8 + 'em'}}>
-                            <a href="" class="button" onClick={() => loginWithRedirect({redirectUri:'http://localhost:3000/main'})}>Pruebalo ahora!</a>
+                            <a href="" class="button" onClick={() => loginWithRedirect({redirectUri:'http://localhost:3000/main'})}>¡Pruébalo ahora!</a>
                         </element>
                     </element>
                 </div>
@@ -30,12 +30,12 @@ export default function HeaderMain() {
                         <div className="promo-column">
                             <img src="https://tympanus.net/Freebies/WalkRideTemplate/upload/saturn.png" height="32" width="24" alt=""/>
                             <h5>Actividades</h5>
-                            <p>Registra tus actividades con hora, nombre, descripcion, importancia, para llevar un registro.</p>
+                            <p>Registra tus actividades con hora, nombre, descripción, importancia y categoría para llevar un registro.</p>
                         </div>
                         <div class="promo-column">
                             <img src="https://tympanus.net/Freebies/WalkRideTemplate/upload/easy.png" height="32" width="33" alt=""/>
                             <h5>Desarrollo</h5>
-                            <p>Una vez finalizada cada actividad, tendras la oportunidad de completar tu desarrollo de esta. </p>
+                            <p>Una vez finalizada cada actividad, tendrás la oportunidad de completar el desarrollo de ésta. </p>
                         </div>
                         <div class="promo-column">
                             <img src="https://tympanus.net/Freebies/WalkRideTemplate/upload/settings.png" height="32" width="33" alt=""/>

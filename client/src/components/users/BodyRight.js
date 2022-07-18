@@ -35,8 +35,8 @@ export default function BodyRight() {
                     <h1> El manejo del tiempo es vital </h1>
                 </div>
                 <br></br>
-                <h4> Entre mas puntos acumules, los cuales obtendrás a medida que completes el informe de tus actividades,
-                    obtendrás un mayor rango. </h4>
+                <h4> Entre más puntos acumules, los cuales obtendrás a medida que completes el informe de tus actividades,
+                    obtendrás un mayor nivel. </h4>
                 <br>
                 </br>
                 <div className='row'>
@@ -56,7 +56,7 @@ export default function BodyRight() {
 
                     <div className="col">
                         <div className='row'>
-                            <p>Categoria:</p>
+                            <p>Categoría:</p>
                         </div>
                         <div className='row'>
                             <select onChange={(e) => setCategoria(e.target.value)} value={categoria}>
@@ -64,7 +64,7 @@ export default function BodyRight() {
                             <option value="gray">Ejercicio</option>
                             <option value="green">Proyecto</option>
                             <option value="blue">Amigos</option>
-                            <option value="red">Reunión Academica</option>
+                            <option value="red">Reunión Académica</option>
                             <option value="purple">Trabajo</option>
                             <option value="all">Todas</option>
                             </select>

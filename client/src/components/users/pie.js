@@ -165,7 +165,7 @@ export default function Pie(props) {
         console.log(graph)
         return(
             <div className="m-5 flex-1">
-                <h1>Aun no hay registros de actividades finalizadas con estas caracteristicas, registra la finalizacion de tus actividades para ver tus estadisticas</h1>
+                <h1>Aun no hay registros de actividades finalizadas con estas características, registra la finalización de tus actividades para ver tus estadísticas</h1>
             </div>
         );
     }
@@ -175,7 +175,7 @@ export default function Pie(props) {
         <Card {...props} sx={{ width: 900, marginTop: 5 }}>
       <CardHeader
         title={
-          "Tus estadisticas generales"
+          "Tus estadísticas generales"
         }
       />
       <Divider />

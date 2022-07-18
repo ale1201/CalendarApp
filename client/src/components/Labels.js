@@ -25,9 +25,9 @@ export default function Labels() {
           />
           {lbl === "indigo" && (<span className="ml-2 text-gray-700 capitalize">Examen</span>)}
           {lbl === "gray" && (<span className="ml-2 text-gray-700 capitalize">Ejercicio</span>)}
-          {lbl === "green" && (<span className="ml-2 text-gray-700 capitalize">Parcial</span>)}
+          {lbl === "green" && (<span className="ml-2 text-gray-700 capitalize">Proyecto</span>)}
           {lbl === "blue" && (<span className="ml-2 text-gray-700 capitalize">Amigos</span>)}
-          {lbl === "red" && (<span className="ml-2 text-gray-700 capitalize">Reunión academica</span>)}
+          {lbl === "red" && (<span className="ml-2 text-gray-700 capitalize">Reunión Académica</span>)}
           {lbl === "purple" && (<span className="ml-2 text-gray-700 capitalize">Trabajo</span>)}
           
           
