@@ -42,3 +42,9 @@ aplicación en el navegador en el puerto 3000.
 - En la carpeta /lib/ se encuentra la implementación del despliegue de la DB.
 
 ### Especificaciones Frontend
+
+- En la carpeta /components/login/ se encuentran las clases implementadas en la vista inicio de sesión
+- En la cartpeta /components/users/ se encuentran las clases implementadas en la vista estadisticas 
+- En la carpeta /components/ se encuentran las clases implementandas en la vista calendario principal 
+
+En el documento de tesis entregado a la asesora Olga Mariño, se encuentra una descripción especifica el nombre de las clases implementadas en cada vista y que contienen. 
