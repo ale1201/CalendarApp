@@ -47,4 +47,11 @@ aplicación en el navegador en el puerto 3000.
 - En la cartpeta /components/users/ se encuentran las clases implementadas en la vista estadisticas 
 - En la carpeta /components/ se encuentran las clases implementandas en la vista calendario principal 
 
-En el documento de tesis entregado a la asesora Olga Mariño, se encuentra una descripción especifica el nombre de las clases implementadas en cada vista y que contienen. 
+En el documento de tesis entregado a la asesora Olga Mariño, se encuentra una descripción especifica el nombre de las clases implementadas en cada vista y que contienen.
+Cualquier duda frente al proyecto comunicarse con:
+
+Maria Alejandra Pabón
+correo: ma.pabon@uniandes.edu.co
+
+Sara Acosta Villegas
+correo: s.acostav@uniandes.edu.co
